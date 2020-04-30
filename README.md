@@ -74,10 +74,12 @@ $filter = new DrFilter(1);
 示例如下:
 
 // 过滤输入
-''' $param = DrFilter::instance()->filter(input('')); '''
+
+$param = DrFilter::instance()->filter(input(''));
 
 // 按照指定正则过滤输入
-''' $param = DrFilter::instance()->setGrep->('')->filter(input('')); '''
+
+$param = DrFilter::instance()->setGrep->('')->filter(input(''));
 
 
 ## DrCheck常见的输入检查
