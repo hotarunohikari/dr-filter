@@ -84,7 +84,7 @@ $param = DrFilter::instance()->setGrep->('')->filter(input(''));
 
 ## DrCheck常见的输入检查
 
-'''
+
     /**
      * 账户是否合法,数字字母下划线,指定长度区间
      * @param $account
