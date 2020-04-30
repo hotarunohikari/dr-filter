@@ -22,7 +22,7 @@
 
 二. API:
 
-'''
+
     /**
      * 设置默认的过滤字符
      * @param array $deny
@@ -66,7 +66,7 @@
      */
     function filter($input, $strict = null) 
 
-    '''
+    
 
 示例如下:
 
