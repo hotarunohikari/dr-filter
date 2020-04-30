@@ -16,9 +16,12 @@
 一. 实例化: 
 
 单例模式(传入过滤等级)：
-''' $filter = DrFilter::instance(1); '''
+
+$filter = DrFilter::instance(1);
+
 新建模式(传入过滤等级):
-''' $filter = new DrFilter(1); '''
+
+$filter = new DrFilter(1);
 
 二. API:
 
@@ -182,6 +185,5 @@
      */
     static function isValidTaxCode($taxCode)
 
-    '''
 
 
