@@ -81,9 +81,9 @@ $filter = new DrFilter(1);
 
 $param = DrFilter::instance()->filter(input(''));
 
-// 按照指定正则过滤输入
+// 按照指定正则过滤输入(检查是否是邮箱格式)
 
-$param = DrFilter::instance()->setGrep->('')->filter(input(''));
+$param = DrFilter::instance()->setGrep->('/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/')->filter(input('email'));
 
 
 ## DrCheck常见的输入检查
