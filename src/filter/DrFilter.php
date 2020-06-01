@@ -96,12 +96,13 @@ class DrFilter
      * @return array
      */
     function filter($input, $strict = null) {
-        $input  = (array)$input;
-        $strict = $strict ?? $this->strict;
-        array_walk($input, function (&$val) use ($strict) {
+        $isArray  = is_array($input);
+        $inputArr = (array)$input;
+        $strict   = $strict ?? $this->strict;
+        array_walk($inputArr, function (&$val) use ($strict) {
             $val = $this->filterInput($val, $strict);
         });
-        return $input;
+        return isArray ? $inputArr : $inputArr[0];
     }
 
     /**
