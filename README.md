@@ -6,23 +6,32 @@
 内置1个默认过滤字符集和5个过滤等级,分别对应描述如下:
 
 0:防xss攻击,并去除输入中的空格和换行回车
+
 1:仅支持输入数字字母下划线和中日韩文字
+
 2:仅支持输入数字字母下划线和中文
+
 3:仅支持输入数字字母下划线
+
 4:仅支持输入数字
 
 默认过滤等级为0
 
+<font face="黑体" color=red>注意</font>: 本扩展默认不会对符号 # 进行过滤(多用于地址填写), 实际应用中请预防sql注入问题
+
 一. 实例化: 
 
 单例模式(传入过滤等级)：
-''' $filter = DrFilter::instance(1); '''
+
+$filter = DrFilter::instance(1);
+
 新建模式(传入过滤等级):
-''' $filter = new DrFilter(1); '''
+
+$filter = new DrFilter(1);
 
 二. API:
 
-'''
+
     /**
      * 设置默认的过滤字符
      * @param array $deny
@@ -66,20 +75,22 @@
      */
     function filter($input, $strict = null) 
 
-    '''
+    
 
 示例如下:
 
 // 过滤输入
-''' $param = DrFilter::instance()->filter(input('')); '''
 
-// 按照指定正则过滤输入
-''' $param = DrFilter::instance()->setGrep->('')->filter(input('')); '''
+$param = DrFilter::instance()->filter(input(''));
+
+// 按照指定正则过滤输入(检查是否是邮箱格式)
+
+$param = DrFilter::instance()->setGrep('/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/')->filter(input('email'));
 
 
 ## DrCheck常见的输入检查
 
-'''
+
     /**
      * 账户是否合法,数字字母下划线,指定长度区间
      * @param $account
@@ -182,6 +193,5 @@
      */
     static function isValidTaxCode($taxCode)
 
-    '''
 
 
